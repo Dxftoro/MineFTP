@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Kupitman.org</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body>
+	<div class="container mt-5 text-center" id="table-wrapper">
+		<table class="table text-white" id="table-main">
+			<h2><strong>Таблица загрузок</strong></h2>
+
+			<thead>
+                <tr>
+                    <th scope="col">Пользователь</th>
+                    <th scope="col">Файл</th>
+                    <th scope="col">Дата загрузки</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for upload in uploads %}
+                <tr>
+                    <td>{{ upload[0] }}</td>
+                    <td>{{ upload[1] }}</td>
+                    <td>{{ upload[2] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+		</table>
+
+		<div class="mt-3" id="hint-text">
+        	Здесь представлены все пользователи, выложившие свои файлы на сервер.<br />
+    		Чтобы выложить файл на сервер пропишите <strong>ftp post [имя_файла]</strong><br />
+    		Чтобы скачать нужный файл с сервера - <strong>ftp get [имя_файла]</strong><br />
+    		Чтобы просмотреть список всех файлов на сервере прямо в терминале - <strong>ftp ls</strong><br />
+        </div>
+	</div>
+</body>
+
+</html>
