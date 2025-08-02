@@ -50,6 +50,7 @@ elseif method == "get" then
     
     local file = fs.open(shell.dir().."/"..path, "w")
     file.write(content)
+    file.close()
     
     print("File \""..path.."\" saved!")
 
