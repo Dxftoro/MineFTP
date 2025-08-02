@@ -114,7 +114,7 @@ def ftp_handle():
 		except FileNotFoundError:
 			return f"File {filename} not found on the server!"
 
-	return "Idi nahui"
+	return "Unsupported request method!"
 
 @app.route("/coordination", methods=["post"])
 def coord_handle():
